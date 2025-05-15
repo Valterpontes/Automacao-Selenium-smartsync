@@ -11,15 +11,13 @@ navegador = webdriver.Chrome()
 espera = WebDriverWait(navegador, 10)
 
 
-# for _ in range(1):  
-
 # Abre SmartSync e bota em tecla cheia
 navegador.get("https://smartsync.app.br")
 navegador.maximize_window()
 
 # Seleciona email, senha e preenche
-navegador.find_elements(By.TAG_NAME, "input")[1].send_keys("valter")
-navegador.find_elements(By.TAG_NAME, "input")[0].send_keys("valter@gmail.com")
+navegador.find_elements(By.TAG_NAME, "input")[1].send_keys("testeteste")
+navegador.find_elements(By.TAG_NAME, "input")[0].send_keys("unifg@gmail.com")
 
 #seleciona e procura o botao de conectar
 navegador.find_element(By.TAG_NAME, "button").click()
@@ -37,17 +35,23 @@ navegador.find_element(By.XPATH, "//a[@href='/bloco1']").click()
 navegador.find_elements(By.TAG_NAME, "input")[0].send_keys("10/10/2025")
 navegador.find_elements(By.TAG_NAME, "input")[1].send_keys("12:30")
 
-
 #liga switch
 navegador.find_elements(By.TAG_NAME, "label")[0].click()
+time.sleep(1.5)
 
+#selecionar andar
+navegador.find_elements(By.TAG_NAME, "select")[0].click()
+navegador.find_elements(By.TAG_NAME, "option")[1].click()
 
+#preenche dispositivo do 2º andar
+navegador.find_elements(By.TAG_NAME, "input")[0].send_keys("10/10/2025")
+navegador.find_elements(By.TAG_NAME, "input")[1].send_keys("12:30")
+navegador.find_elements(By.TAG_NAME, "label")[0].click()
+time.sleep(1.5)
 
-# fica 2 segundos na pagina
-time.sleep(1)
+navegador.find_element(By.XPATH, "//a[@href='/about']/button[contains(text(), 'Sobre')]").click()
+time.sleep(1.5)
 
 #clica em desconectar
 navegador.find_element(By.LINK_TEXT, "Desconectar").click()
-
-# Tempo para ver a pagina de login
 time.sleep(1)
