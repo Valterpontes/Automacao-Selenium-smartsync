@@ -1,9 +1,14 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
+
+# Credenciais de teste lidas das variáveis de ambiente
+EMAIL = os.environ["SMARTSYNC_EMAIL"]
+SENHA = os.environ["SMARTSYNC_SENHA"]
 
 for i in range(2):
     # Abre chrome
@@ -16,8 +21,8 @@ for i in range(2):
     navegador.maximize_window()
 
     # Seleciona email, senha e preenche
-    navegador.find_elements(By.TAG_NAME, "input")[1].send_keys("testeteste")
-    navegador.find_elements(By.TAG_NAME, "input")[0].send_keys("unifg@gmail.com")
+    navegador.find_elements(By.TAG_NAME, "input")[1].send_keys(SENHA)
+    navegador.find_elements(By.TAG_NAME, "input")[0].send_keys(EMAIL)
 
     #seleciona e procura o botao de conectar
     navegador.find_element(By.TAG_NAME, "button").click()
